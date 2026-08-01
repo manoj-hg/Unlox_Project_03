@@ -28,7 +28,6 @@
             width: 100vw;
         }
 
-        /* --- INTRODUCTION SCREEN & LOADER --- */
         .intro-screen {
             position: fixed;
             inset: 0;
@@ -63,7 +62,6 @@
             line-height: 1.5;
         }
 
-        /* SVG Loader Styles */
         .absolute { position: absolute; }
         .inline-block { display: inline-block; }
         .loader { display: flex; margin: 0.25em 0; transform: scale(1.2); }
@@ -96,7 +94,6 @@
             87.5%, 100% { rotate: 1080deg; }
         }
 
-        /* --- MAIN APP CONTAINER --- */
         #mainApp {
             display: none;
             opacity: 0;
@@ -107,14 +104,12 @@
             transition: opacity 0.6s ease-in-out;
         }
 
-        /* --- DEVICE RESPONSIVE BACKGROUND WALLPAPER --- */
         .bg-wallpaper {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            /* 1. Desktop Background Default */
             background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)), 
                         url('background.png') no-repeat center center fixed;
             background-size: cover;
@@ -122,7 +117,6 @@
             pointer-events: none;
         }
 
-        /* 2. Tablet / iPad View Background Switch (601px - 1024px) */
         @media (min-width: 601px) and (max-width: 1024px) {
             .bg-wallpaper {
                 background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)), 
@@ -131,7 +125,6 @@
             }
         }
 
-        /* 3. Mobile View Background Switch (<= 600px) */
         @media (max-width: 600px) {
             .bg-wallpaper {
                 background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)), 
@@ -169,7 +162,6 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- DASHBOARD SLIDING FILTER SWITCH --- */
         .filter-switch-wrapper {
             margin-bottom: 25px;
             display: flex;
@@ -229,7 +221,6 @@
         #option1:not(:checked) + label[for="option1"],
         #option2:not(:checked) + label[for="option2"] { color: #7d7d7d; }
 
-        /* --- CONTENT SECTION --- */
         .main-content-section {
             width: 100%;
             display: flex;
@@ -248,7 +239,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* SEARCH BAR */
         .input-container-wrapper {
             width: 100%;
             max-width: 600px;
@@ -311,7 +301,6 @@
             text-shadow: 0 2px 8px rgba(0,0,0,0.8);
         }
 
-        /* --- SELECTED MOVIE DETAILS PANEL --- */
         .selected-movie-card {
             display: none;
             width: 100%;
@@ -374,7 +363,6 @@
             font-size: 0.85rem;
         }
 
-        /* --- STEVEBLOX MOVIE CARDS --- */
         .movies-scroll-container {
             width: 100%;
             margin-top: 10px;
@@ -471,7 +459,6 @@
             text-transform: capitalize;
         }
 
-        /* --- WEATHER SUNSET CARD --- */
         .weather-card-wrapper {
             display: flex;
             justify-content: center;
@@ -569,7 +556,6 @@
         .forecast > div { display: flex; justify-content: space-between; width: 100%; font-weight: 500; }
         .separator { width: 100%; height: 1px; background-color: #f1f5f9; }
 
-        /* Loader & View States */
         .loader-wrapper { display: none; justify-content: center; padding: 30px 0; }
         .view-section { display: none; width: 100%; flex-direction: column; align-items: center; }
         .view-section.active { display: flex; }
@@ -579,7 +565,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- MOBILE MEDIA QUERIES --- */
         @media (max-width: 600px) {
             .input-container { flex-direction: column; border-radius: 1.2rem; }
             .input-container input { border-radius: 1rem; text-align: center; }
@@ -595,12 +580,10 @@
 </head>
 <body>
 
-    <!-- INTRODUCTION SCREEN -->
     <div id="introScreen" class="intro-screen">
         <h1 class="intro-title">WEM Dashboard</h1>
         <p class="intro-subtitle">Get your weather and movies details at one platform</p>
         
-        <!-- Custom SVG Loader -->
         <div class="loader">
           <svg height="0" width="0" viewBox="0 0 64 64" class="absolute">
             <defs class="s-xJBuHA073rTt" xmlns="http://www.w3.org/2000/svg">
@@ -632,16 +615,12 @@
         </div>
     </div>
 
-    <!-- MAIN APP WRAPPER -->
     <div id="mainApp">
 
-        <!-- RESPONSIVE BACKGROUND CANVAS -->
         <div class="bg-wallpaper"></div>
 
-        <!-- MAIN PAGE HEADING -->
         <div id="title" class="space-title"><span>CINEMA</span></div>
 
-        <!-- SLIDING FILTER SWITCH -->
         <div class="filter-switch-wrapper">
             <div class="filter-switch">
               <input checked="" id="option1" name="options" type="radio" onchange="switchView('movie')" />
@@ -652,10 +631,8 @@
             </div>
         </div>
 
-        <!-- FULL PAGE CONTENT CONTAINER -->
         <div class="main-content-section">
             
-            <!-- MOVIE SECTION -->
             <div id="movieSection" class="view-section active">
                 <h1 class="header-title">Cinema Finder</h1>
                 <div class="input-container-wrapper">
@@ -667,7 +644,6 @@
                 
                 <div id="movieStatus" class="status-badge">Enter a title above to search movies</div>
 
-                <!-- DEDICATED SELECTION CARD DISPLAY -->
                 <div id="selectedMovieCard" class="selected-movie-card">
                     <img id="selectedPoster" src="" alt="Selected Poster">
                     <div class="selected-info">
@@ -690,7 +666,6 @@
                 </div>
             </div>
 
-            <!-- WEATHER SECTION -->
             <div id="weatherSection" class="view-section">
                 <h1 class="header-title">Weather Forecast</h1>
                 <div class="input-container-wrapper">
@@ -702,7 +677,6 @@
                 <div id="weatherStatus" class="status-badge">Search a city above to display atmospheric metrics</div>
                 <div id="weatherLoaderWrapper" class="loader-wrapper"><i class="fa-solid fa-spinner fa-spin fa-2x" style="color: #ffc000;"></i></div>
                 
-                <!-- LANDSCAPE WEATHER CARD -->
                 <div id="weatherCardWrapper" class="weather-card-wrapper" style="display: none;">
                     <div class="weather-card">
                       <section class="landscape-section">
@@ -733,14 +707,12 @@
                           </div>
                         </div>
 
-                        <!-- REAL-TIME METRICS BAR -->
                         <div class="metrics-bar">
                             <div class="metric-item"><i class="fa-solid fa-wind"></i> <span id="windSpeedText">-- km/h</span></div>
                             <div class="metric-item"><i class="fa-solid fa-droplet"></i> <span id="humidityText">--%</span></div>
                             <div class="metric-item"><i class="fa-solid fa-leaf"></i> <span id="airQualityText">Good</span></div>
                         </div>
 
-                        <!-- FORECAST LIST -->
                         <div id="forecastContainer" class="forecast"></div>
                       </section>
                     </div>
@@ -748,10 +720,9 @@
             </div>
 
         </div>
-    </div> <!-- END MAIN APP WRAPPER -->
+    </div>
 
     <script>
-        // --- INTRO SCREEN LOGIC ---
         window.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 const intro = document.getElementById('introScreen');
@@ -771,7 +742,6 @@
             }, 3000);
         });
 
-        // --- VIEW SWITCHER LOGIC ---
         function switchView(view) {
             document.querySelectorAll('.view-section').forEach(sec => sec.classList.remove('active'));
             const titleElement = document.getElementById('title');
@@ -789,7 +759,6 @@
             }
         }
 
-        // --- MOVIE CARD SELECTION ---
         function selectMovie(movie, cardElement) {
             document.querySelectorAll('.card').forEach(c => c.classList.remove('active-selected'));
             cardElement.classList.add('active-selected');
@@ -805,7 +774,6 @@
             panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
 
-        // --- MOVIE API LOGIC ---
         async function getMovies(query) {
             const status = document.getElementById('movieStatus');
             const container = document.getElementById('moviesContainer');
@@ -862,7 +830,6 @@
             if (query) getMovies(query);
         }
 
-        // --- WEATHER CONDITION MAP ---
         const wCodeMap = {
             0: { text: "Clear Sky", emoji: "☀️" },
             1: { text: "Mainly Clear", emoji: "🌤️" },
@@ -879,7 +846,6 @@
             return dateObj.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric', month: 'short' });
         }
 
-        // --- WEATHER API LOGIC ---
         async function getWeather(city) {
             const status = document.getElementById('weatherStatus');
             const cardWrapper = document.getElementById('weatherCardWrapper');
@@ -953,7 +919,6 @@
             if (query) getWeather(query);
         }
 
-        // Keyboard Event Listeners
         document.getElementById('movieInput').addEventListener('keypress', (e) => { if (e.key === 'Enter') handleMovieSearch(); });
         document.getElementById('cityInput').addEventListener('keypress', (e) => { if (e.key === 'Enter') handleWeatherSearch(); });
     </script>
